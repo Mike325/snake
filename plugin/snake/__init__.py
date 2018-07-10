@@ -1,7 +1,7 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 import vim
-from contextlib import contextmanager 
+from contextlib import contextmanager
 from functools import wraps, partial
 import os
 import sys
@@ -88,7 +88,7 @@ def _generate_autocommand_name(fn):
     where it was defined.  the name must be reproducible between startup calls
     because its for an auto command group, and we must clear the old group out
     when reloading
-    
+
     http://learnvimscriptthehardway.stevelosh.com/chapters/14.html#clearing-groups
     """
     src = None
@@ -198,7 +198,7 @@ def abbrev(word, expansion, local=False):
 
 def expand(stuff):
     return vim.eval("expand('%s')" % escape_string_sq(stuff))
-     
+
 def get_current_dir():
     return dirname(get_current_file())
 
@@ -349,7 +349,7 @@ def keys(k, keymaps=True):
     k = escape_string_dq(k)
     cmd = "normal"
     if keymaps:
-        # vim does not expand "\<leader>" in execute normal 
+        # vim does not expand "\<leader>" in execute normal
         # here we check explicitly for for the word leader in keys, before
         # attempting to run get_leader(), the reason is because on some versions
         # of vim, vim.eval will print an "invalid expression" error if a
@@ -702,8 +702,8 @@ def on_autocmd(event, filetype):
     Your function will be passed an instance of
     AutoCommandContext, which contains on it *buffer-local* methods that would
     be useful to you. A filetype of "*" matches all files.
-    For a list of eligible events, try :help autocmd-events in vim.  
-    """ 
+    For a list of eligible events, try :help autocmd-events in vim.
+    """
     def wrapped(fn):
         au_name = _generate_autocommand_name(fn)
         command("augroup %s" % au_name)

@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+
+from __future__ import unicode_literals, print_function, with_statement, division
+
 import os
 from os.path import join, dirname, abspath, exists
 import tempfile
